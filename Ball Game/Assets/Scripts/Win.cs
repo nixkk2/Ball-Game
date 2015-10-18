@@ -27,7 +27,8 @@ public class Win : MonoBehaviour {
             float difference = Timer.highTimer[Lvl.lvlName] - Timer.timer;
             HST.text = "Old high score: " + Timer.highTimer[Lvl.lvlName].ToString("#0.00") + ". You beat your old time by: " +  difference.ToString("#0.00");
             Timer.highTimer[Lvl.lvlName] = Timer.timer;
-            PlayerPrefs.SetFloat(Lvl.lvlName, Timer.highTimer[Lvl.lvlName]);
+            PlayerPrefs.SetFloat("timer." + Lvl.lvlName, Timer.highTimer[Lvl.lvlName]);
+            //print(Timer.highTimer[Lvl.lvlName]);
 
         }
         else {

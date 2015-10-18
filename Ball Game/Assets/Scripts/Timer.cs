@@ -18,20 +18,23 @@ public class Timer : MonoBehaviour {
     void Start () {
         timer = 0;
         print(Lvl.lvlName);
-        highTimer[Lvl.lvlName] = 999;
-        if (PlayerPrefs.GetFloat(Lvl.lvlName, 999) <= 999 || highTimer[Lvl.lvlName] <= 0) {
+        print(highTimer[Lvl.lvlName].ToString("#0.00"));
+
+        highTimer.Add(Lvl.lvlName, 999);
+        if (PlayerPrefs.GetFloat("timer." + Lvl.lvlName, 999) <= 0 || highTimer[Lvl.lvlName] <= 0) {
             //highTimer.Add(Lvl.lvlName, 999);
-            PlayerPrefs.SetFloat(Lvl.lvlName, 999);
+            PlayerPrefs.SetFloat("timer." + Lvl.lvlName, 999);
             highTimer[Lvl.lvlName] = 999;
             //highTimer[Lvl.lvlName] = 999;
         }
-
         else {
-            highTimer[Lvl.lvlName] = PlayerPrefs.GetFloat(Lvl.lvlName);
+            highTimer[Lvl.lvlName] = PlayerPrefs.GetFloat("timer." + Lvl.lvlName);
             //highTimer.Add(Lvl.lvlName, PlayerPrefs.GetFloat(Lvl.lvlName));
         }
+        //highTimer[Lvl.lvlName] = PlayerPrefs.GetFloat("timer." + Lvl.lvlName);
         //highTimer = PlayerPrefs.GetFloat(Lvl.lvlName);
-
+        highTimer[Lvl.lvlName] = 999;
+        print(highTimer[Lvl.lvlName].ToString("#0.00"));
     }
 	
 	// Update is called once per frame
@@ -41,14 +44,14 @@ public class Timer : MonoBehaviour {
             timer2B = true;
             if(timer2 >= 3) {
                 
-                PlayerPrefs.SetFloat(Lvl.lvlName, 999);
+                PlayerPrefs.SetFloat("timer." + Lvl.lvlName, 999);
                 //highTimer.Add(Lvl.lvlName, 999);
                 highTimer[Lvl.lvlName] = 999;
             }
-            if (timer2 >= 5) {
+            //if (timer2 >= 5) {
 
-                PlayerPrefs.DeleteAll();
-            }
+                //PlayerPrefs.DeleteAll();
+            //}
         }
         else {
             timer2B = false;
@@ -62,6 +65,6 @@ public class Timer : MonoBehaviour {
             timer += Time.deltaTime;
 
         time.text = "Timer: " + timer.ToString("#0.00");
-        highTime.text = "High Score: " + highTimer[Lvl.lvlName].ToString("#0.00");
+        //highTime.text = "High Score: " + highTimer[Lvl.lvlName].ToString("#0.00");
     }
 }

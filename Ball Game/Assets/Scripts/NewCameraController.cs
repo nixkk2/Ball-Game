@@ -20,7 +20,7 @@ public class NewCameraController : MonoBehaviour {
 	public static float YR;
 	public float XR;
     public float ZR;
-    public float sensitivity = 25;
+    public static float sensitivity = 120;
 
 	Renderer rend;
 	public Color playerColor = Color.white;
