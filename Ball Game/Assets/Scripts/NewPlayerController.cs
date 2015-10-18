@@ -5,22 +5,22 @@ using System.Collections;
 public class NewPlayerController : MonoBehaviour {
 
 	public float Bspeed;
-	public float Aspeed = 120;
+    public float Aspeed = 120;
 	public static float Nspeed;
 	
 	public float MaxBoostT = 5;
 	public GameObject PlayerCamera;
 	public NewCameraController PCS;
 	public Scrollbar bar;
-	public Scrollbar bar2;
-	public Vector3 BV;
+    public Scrollbar bar2;
+    public Vector3 BV;
 	public bool BB = false;
-	public static bool Lock;
-	public Vector3 movement;
+    public static bool Lock;
+    public Vector3 movement;
 
-	public Win win;
+    public Win win;
 
-	private Quaternion notup;
+    private Quaternion notup;
 	private float moveHorizontal;
 	private float moveVertical;
 	public float BoostT;
@@ -32,55 +32,55 @@ public class NewPlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Nspeed = Aspeed;
-		Lock = true;
+        Nspeed = Aspeed;
+        Lock = true;
 		BoostT = MaxBoostT;
 		speed = Nspeed;
 		rb = GetComponent<Rigidbody>();
 
 	}
 
-	
+    
 
 
-	public void Quit () {
-		Application.LoadLevel("TitleScreen");
-		//Application.Quit();
-	}
+    public void Quit () {
+        Application.LoadLevel("TitleScreen");
+        //Application.Quit();
+    }
 
 
-	void OnTriggerStay(Collider col) {
-		if (col.tag == "Boost") {
-			string[] arr = col.name.Split(char.Parse("_"));
-			rb.AddForce(new Vector3(float.Parse(arr[1]), float.Parse(arr[2]), float.Parse(arr[3])));
-		}
-		
-	}
+    void OnTriggerStay(Collider col) {
+        if (col.tag == "Boost") {
+            string[] arr = col.name.Split(char.Parse("_"));
+            rb.AddForce(new Vector3(float.Parse(arr[1]), float.Parse(arr[2]), float.Parse(arr[3])));
+        }
+        
+    }
 
-	void OnTriggerEnter (Collider col) {
-		if (col.gameObject.tag.Equals("Finish")) {
-			print("Finish");
-			win.Finish();
+    void OnTriggerEnter (Collider col) {
+        if (col.gameObject.tag.Equals("Finish")) {
+            print("Finish");
+            win.Finish();
 
-			
-		}
-		
-	}
+            
+        }
+        
+    }
 
-	ColorBlock red;
-	ColorBlock white;
-	void Update () {
-		
+    ColorBlock red;
+    ColorBlock white;
+    void Update () {
+        
 
 
-		//float YR = PCS.YR
-		if (Input.GetButtonDown("Lock") && !EscMenu.menu) {
+        //float YR = PCS.YR
+        if (Input.GetButtonDown("Lock") && !EscMenu.menu) {
 
-			if (Lock)
-				Lock = false;
-			else
-				Lock = true;
-		}
+            if (Lock)
+                Lock = false;
+            else
+                Lock = true;
+        }
 
 
 		if (Lock) {
@@ -97,8 +97,8 @@ public class NewPlayerController : MonoBehaviour {
 			if(Input.GetButton("Boost") && !EscMenu.menu) { 
 
 				if(BB) {
-					Timer.timerB = true;
-					MaxBoostT = 0;
+                    Timer.timerB = true;
+                    MaxBoostT = 0;
 					BB = false;
 					//BV = new Vector3(0, 0, Bspeed);
 					rb.AddForce(Quaternion.Euler(new Vector3(0, PCS.XR, 0)) * new Vector3(0, 0, Bspeed));
@@ -108,75 +108,74 @@ public class NewPlayerController : MonoBehaviour {
 				}
 			}
 			if (MaxBoostT >= BoostT) {
-				//boostP.GetComponent<RawImage>().color = new Color(1, 0, 0, 1);
+                //boostP.GetComponent<RawImage>().color = new Color(1, 0, 0, 1);
 
-				red = bar2.colors;
-				red.normalColor = Color.red;
-				bar2.colors = red;
-				bar.colors = red;
-				bar2.size = (MaxBoostT / BoostT) / 1;
-				BB = true;
+                red = bar2.colors;
+                red.normalColor = Color.red;
+                bar2.colors = red;
+                bar.colors = red;
+                bar2.size = (MaxBoostT / BoostT) / 1;
+                BB = true;
 			}
 			if (MaxBoostT <= BoostT) {
 
-				white = bar2.colors;
-				white.normalColor = Color.white;
-				bar2.colors = white;
-				bar.colors = white;
+                white = bar2.colors;
+                white.normalColor = Color.white;
+                bar2.colors = white;
+                bar.colors = white;
 
-				MaxBoostT += Time.deltaTime;
-				//bar.size = 1 / (BoostT / MaxBoostT);
-				if(options.advancedB) {
-					bar.size = (MaxBoostT / BoostT) / 1;
-					bar2.size = (MaxBoostT / BoostT) / 1;
-					//boostP.transform.position = new Vector3(338.8F + (166.4F / (BoostT / MaxBoostT)), boostP.transform.position.y, boostP.transform.position.z);
+                MaxBoostT += Time.deltaTime;
+                //bar.size = 1 / (BoostT / MaxBoostT);
+                if(options.advancedB) {
+                    bar.size = (MaxBoostT / BoostT) / 1;
+                    bar2.size = (MaxBoostT / BoostT) / 1;
+                    //boostP.transform.position = new Vector3(338.8F + (166.4F / (BoostT / MaxBoostT)), boostP.transform.position.y, boostP.transform.position.z);
 
-					//boostP.transform.position = new Vector3(boostP2.transform.position.x / 1.8F + (166.4F / (BoostT / MaxBoostT)), boostP.transform.position.y, boostP.transform.position.z);
-					//boostP.transform.localScale = new Vector3(((MaxBoostT / BoostT) / 1) * 1.0F, boostP.transform.localScale.y, boostP.transform.localScale.y);
-					//boostP.transform.position = new Vector3(60 + (), boostP.transform.position.y, boostP.transform.position.z);
-				}
-				else
-					bar.size = (MaxBoostT / BoostT) / 1;
-			}
+                    //boostP.transform.position = new Vector3(boostP2.transform.position.x / 1.8F + (166.4F / (BoostT / MaxBoostT)), boostP.transform.position.y, boostP.transform.position.z);
+                    //boostP.transform.localScale = new Vector3(((MaxBoostT / BoostT) / 1) * 1.0F, boostP.transform.localScale.y, boostP.transform.localScale.y);
+                    //boostP.transform.position = new Vector3(60 + (), boostP.transform.position.y, boostP.transform.position.z);
+                }
+                else
+                    bar.size = (MaxBoostT / BoostT) / 1;
+            }
 
 
 		}
-		/*
-		notup = PlayerCamera.transform.rotation;
-		notup = Quaternion.identity;
 
-		Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-		move = move.normalized * Time.deltaTime * speed;
-		GetComponent<Rigidbody>().AddRelativeForce(move);
-		*/
-	}
+        notup = PlayerCamera.transform.rotation;
+        notup = Quaternion.identity;
+
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        move = move.normalized * Time.deltaTime * speed;
+        GetComponent<Rigidbody>().AddRelativeForce(move);
+    }
 
 	void FixedUpdate () {
 
-		
+        /*
 		notup = PlayerCamera.transform.rotation;
 		notup = Quaternion.identity;
 
-		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
+        float moveHorizontal = Input.GetAxisRaw ("Horizontal");
 		float moveVertical = Input.GetAxisRaw ("Vertical");
-		if(moveHorizontal != 0 && moveVertical != 0) {
-			//moveHorizontal /= 2;
-			//moveVertical /= 2;
-		}
+        if(moveHorizontal != 0 && moveVertical != 0) {
+            //moveHorizontal /= 2;
+            //moveVertical /= 2;
+        }
 
-		if(moveHorizontal != 0 || moveVertical != 0) {
-			Timer.timerB = true;
-		}
-		
-		movement = new Vector3 (moveHorizontal * Time.deltaTime, 0, moveVertical * Time.deltaTime);
+        if(moveHorizontal != 0 || moveVertical != 0) {
+            Timer.timerB = true;
+        }
+        
+        movement = new Vector3 (moveHorizontal * Time.deltaTime, 0, moveVertical * Time.deltaTime);
 
-		notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
+        notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
 		//notup.y = PCS.YR;
 
 		movement = notup * movement;
 
-		//rb.AddForce (movement * speed);
-		rb.AddForce(movement * speed);
-		
+        //rb.AddForce (movement * speed);
+        rb.AddForce(movement * speed);
+        */
 	}
 }
