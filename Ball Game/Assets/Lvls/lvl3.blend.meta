@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: 3376ab843d27aca4b9a91a211e06fe85
+timeCreated: 1444472050
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: -name_template
+    100002: -noCollide-Boost_0_0_25
+    100004: -Spawn
+    100006: Cube
+    100008: Cube-Boost_0_5_0
+    100010: Cube-noCollide-Boost_0_30_0_2
+    100012: Cube_001
+    100014: Cube_002
+    100016: Cube_003
+    100018: //RootNode
+    100020: -noDrawCube
+    100022: Cube_004
+    100024: -noDrawCube_004
+    100026: Cube_005
+    100028: -noDrawCube_000
+    100030: -noDrawCube_006
+    100032: -noDrawCube_001
+    100034: Cube_006
+    100036: Cube_007
+    100038: Cube_008
+    100040: Cube_009
+    100042: -name_lvl3
+    400000: -name_template
+    400002: -noCollide-Boost_0_0_25
+    400004: -Spawn
+    400006: Cube
+    400008: Cube-Boost_0_5_0
+    400010: Cube-noCollide-Boost_0_30_0_2
+    400012: Cube_001
+    400014: Cube_002
+    400016: Cube_003
+    400018: //RootNode
+    400020: -noDrawCube
+    400022: Cube_004
+    400024: -noDrawCube_004
+    400026: Cube_005
+    400028: -noDrawCube_000
+    400030: -noDrawCube_006
+    400032: -noDrawCube_001
+    400034: Cube_006
+    400036: Cube_007
+    400038: Cube_008
+    400040: Cube_009
+    400042: -name_lvl3
+    2300000: -name_template
+    2300002: -noCollide-Boost_0_0_25
+    2300004: -Spawn
+    2300006: Cube
+    2300008: Cube-Boost_0_5_0
+    2300010: Cube-noCollide-Boost_0_30_0_2
+    2300012: Cube_001
+    2300014: Cube_002
+    2300016: Cube_003
+    2300018: -noDrawCube
+    2300020: Cube_004
+    2300022: -noDrawCube_004
+    2300024: Cube_005
+    2300026: -noDrawCube_000
+    2300028: -noDrawCube_006
+    2300030: -noDrawCube_001
+    2300032: Cube_006
+    2300034: Cube_007
+    2300036: Cube_008
+    2300038: Cube_009
+    2300040: -name_lvl3
+    3300000: -name_template
+    3300002: -noCollide-Boost_0_0_25
+    3300004: -Spawn
+    3300006: Cube
+    3300008: Cube-Boost_0_5_0
+    3300010: Cube-noCollide-Boost_0_30_0_2
+    3300012: Cube_001
+    3300014: Cube_002
+    3300016: Cube_003
+    3300018: -noDrawCube
+    3300020: Cube_004
+    3300022: -noDrawCube_004
+    3300024: Cube_005
+    3300026: -noDrawCube_000
+    3300028: -noDrawCube_006
+    3300030: -noDrawCube_001
+    3300032: Cube_006
+    3300034: Cube_007
+    3300036: Cube_008
+    3300038: Cube_009
+    3300040: -name_lvl3
+    4300000: Cube
+    4300002: -Spawn
+    4300004: Cube-Boost_0_5_0
+    4300006: Cube-noCollide-Boost_0_30_0_2
+    4300008: -name_template
+    4300010: -noCollide-Boost_0_0_25
+    4300012: Cube_001
+    4300014: Cube_002
+    4300016: Cube_003
+    4300018: -noDrawCube
+    4300020: Cube_004
+    4300022: -noDrawCube_004
+    4300024: Cube_005
+    4300026: -noDrawCube_006
+    4300028: -noDrawCube_000
+    4300030: -noDrawCube_001
+    4300032: Cube_006
+    4300034: Cube_007
+    4300036: Cube_008
+    4300038: Cube_009
+    4300040: -name_lvl3
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
