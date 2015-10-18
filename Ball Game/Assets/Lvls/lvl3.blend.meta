@@ -27,6 +27,8 @@ ModelImporter:
     100038: Cube_008
     100040: Cube_009
     100042: -name_lvl3
+    100044: -noDrawCube_010
+    100046: -noDrawCube_011
     400000: -name_template
     400002: -noCollide-Boost_0_0_25
     400004: -Spawn
@@ -49,6 +51,8 @@ ModelImporter:
     400038: Cube_008
     400040: Cube_009
     400042: -name_lvl3
+    400044: -noDrawCube_010
+    400046: -noDrawCube_011
     2300000: -name_template
     2300002: -noCollide-Boost_0_0_25
     2300004: -Spawn
@@ -70,6 +74,8 @@ ModelImporter:
     2300036: Cube_008
     2300038: Cube_009
     2300040: -name_lvl3
+    2300042: -noDrawCube_010
+    2300044: -noDrawCube_011
     3300000: -name_template
     3300002: -noCollide-Boost_0_0_25
     3300004: -Spawn
@@ -91,6 +97,8 @@ ModelImporter:
     3300036: Cube_008
     3300038: Cube_009
     3300040: -name_lvl3
+    3300042: -noDrawCube_010
+    3300044: -noDrawCube_011
     4300000: Cube
     4300002: -Spawn
     4300004: Cube-Boost_0_5_0
@@ -112,6 +120,8 @@ ModelImporter:
     4300036: Cube_008
     4300038: Cube_009
     4300040: -name_lvl3
+    4300042: -noDrawCube_010
+    4300044: -noDrawCube_011
     7400000: Default Take
     9500000: //RootNode
   materials:
