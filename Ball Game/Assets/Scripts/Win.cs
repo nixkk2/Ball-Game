@@ -23,11 +23,12 @@ public class Win : MonoBehaviour {
         EscMenu.menu = true;
         winO.SetActive(true);
         if (Timer.timer < Timer.highTimer[Lvl.lvlName]) {
+            PlayerPrefs.SetFloat("timer." + Lvl.lvlName, Timer.timer);
             ST.text = "New high score: " + Timer.timer.ToString("#0.00");
             float difference = Timer.highTimer[Lvl.lvlName] - Timer.timer;
             HST.text = "Old high score: " + Timer.highTimer[Lvl.lvlName].ToString("#0.00") + ". You beat your old time by: " +  difference.ToString("#0.00");
             Timer.highTimer[Lvl.lvlName] = Timer.timer;
-            PlayerPrefs.SetFloat("timer." + Lvl.lvlName, Timer.highTimer[Lvl.lvlName]);
+            
             //print(Timer.highTimer[Lvl.lvlName]);
 
         }

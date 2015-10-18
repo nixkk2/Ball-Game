@@ -6,7 +6,7 @@ public class NewPlayerController : MonoBehaviour {
 
 	public float Bspeed;
     public float Aspeed = 120;
-	public static float Nspeed = 120;
+	public static float Nspeed;
 	
 	public float MaxBoostT = 5;
 	public GameObject PlayerCamera;
@@ -70,7 +70,7 @@ public class NewPlayerController : MonoBehaviour {
     ColorBlock red;
     ColorBlock white;
     void Update () {
-
+        
 
 
         //float YR = PCS.YR
@@ -142,32 +142,40 @@ public class NewPlayerController : MonoBehaviour {
 
 		}
 
+        notup = PlayerCamera.transform.rotation;
+        notup = Quaternion.identity;
 
-	}
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        move = move.normalized * Time.deltaTime * speed;
+        GetComponent<Rigidbody>().AddRelativeForce(move);
+    }
 
 	void FixedUpdate () {
 
-
+        /*
 		notup = PlayerCamera.transform.rotation;
 		notup = Quaternion.identity;
 
         float moveHorizontal = Input.GetAxisRaw ("Horizontal");
 		float moveVertical = Input.GetAxisRaw ("Vertical");
+        if(moveHorizontal != 0 && moveVertical != 0) {
+            //moveHorizontal /= 2;
+            //moveVertical /= 2;
+        }
 
         if(moveHorizontal != 0 || moveVertical != 0) {
             Timer.timerB = true;
         }
+        
+        movement = new Vector3 (moveHorizontal * Time.deltaTime, 0, moveVertical * Time.deltaTime);
 
-		movement = new Vector3 (moveHorizontal * Time.deltaTime, 0, moveVertical * Time.deltaTime);
-
-
-		notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
+        notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
 		//notup.y = PCS.YR;
 
 		movement = notup * movement;
 
         //rb.AddForce (movement * speed);
         rb.AddForce(movement * speed);
-
+        */
 	}
 }

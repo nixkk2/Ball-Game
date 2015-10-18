@@ -16,25 +16,32 @@ public class Timer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        PlayerPrefs.DeleteAll();
         timer = 0;
-        print(Lvl.lvlName);
-        print(highTimer[Lvl.lvlName].ToString("#0.00"));
+        print(PlayerPrefs.GetFloat("timer." + Lvl.lvlName));
+        //float test;
+        highTimer[Lvl.lvlName] = 999;
+        //print(highTimer.TryGetValue(Lvl.lvlName, out test));
 
-        highTimer.Add(Lvl.lvlName, 999);
-        if (PlayerPrefs.GetFloat("timer." + Lvl.lvlName, 999) <= 0 || highTimer[Lvl.lvlName] <= 0) {
+
+        //highTimer.Add(Lvl.lvlName, 999);
+        if (PlayerPrefs.GetFloat("timer." + Lvl.lvlName) == 0F) {
+            print("Timer: 2");
             //highTimer.Add(Lvl.lvlName, 999);
             PlayerPrefs.SetFloat("timer." + Lvl.lvlName, 999);
             highTimer[Lvl.lvlName] = 999;
-            //highTimer[Lvl.lvlName] = 999;
         }
         else {
+            print("Timer: 1");
             highTimer[Lvl.lvlName] = PlayerPrefs.GetFloat("timer." + Lvl.lvlName);
             //highTimer.Add(Lvl.lvlName, PlayerPrefs.GetFloat(Lvl.lvlName));
         }
+
         //highTimer[Lvl.lvlName] = PlayerPrefs.GetFloat("timer." + Lvl.lvlName);
         //highTimer = PlayerPrefs.GetFloat(Lvl.lvlName);
-        highTimer[Lvl.lvlName] = 999;
-        print(highTimer[Lvl.lvlName].ToString("#0.00"));
+        //highTimer[Lvl.lvlName] = 999;
+        //highTimer[Lvl.lvlName] = 999;
+        print(PlayerPrefs.GetFloat("timer." + Lvl.lvlName));
     }
 	
 	// Update is called once per frame
@@ -65,6 +72,6 @@ public class Timer : MonoBehaviour {
             timer += Time.deltaTime;
 
         time.text = "Timer: " + timer.ToString("#0.00");
-        //highTime.text = "High Score: " + highTimer[Lvl.lvlName].ToString("#0.00");
+        highTime.text = "High Score: " + highTimer[Lvl.lvlName].ToString("#0.00");
     }
 }
