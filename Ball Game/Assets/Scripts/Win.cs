@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Win : MonoBehaviour {
 
@@ -9,7 +10,9 @@ public class Win : MonoBehaviour {
 	public GameObject winO;
 	public NewPlayer NP;
 	public static bool finish;
-	
+	public static Dictionary<int, Vector3> savedRecordPos = new Dictionary<int, Vector3>();
+	public static Dictionary<int, Quaternion> savedRecordRot = new Dictionary<int, Quaternion>();
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +21,15 @@ public class Win : MonoBehaviour {
 	}
 	
 	public void Finish() {
+		recorder.start = false;
 		Time.timeScale = 0;
 		finish = true;
 		NewPlayerController.Lock = false;
 		EscMenu.menu = true;
 		winO.SetActive(true);
 		if (Timer.timer < Timer.highTimer[Lvl.lvlName]) {
+			savedRecordPos = recorder.recordpos;
+			savedRecordRot = recorder.recordrot;
 			PlayerPrefs.SetFloat("timer." + Lvl.lvlName, Timer.timer);
 			print(PlayerPrefs.GetFloat("timer." + Lvl.lvlName));
 
