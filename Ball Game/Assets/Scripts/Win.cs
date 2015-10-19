@@ -9,6 +9,7 @@ public class Win : MonoBehaviour {
 	public GameObject winO;
 	public NewPlayer NP;
 	public static bool finish;
+	
 
 	// Use this for initialization
 	void Start () {
