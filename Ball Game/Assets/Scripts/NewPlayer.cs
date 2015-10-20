@@ -21,6 +21,12 @@ public class NewPlayer : MonoBehaviour {
 	}
 
 	public void RES () {
+		//recorder.recordpos.Clear();
+		//recorder.recordrot.Clear();
+        recorder.recTime = 0;
+		recorder.playTime = 0;
+        recorder.record = true;
+		recorder.play = true;
 		Time.timeScale = 1;
 		Timer.timerB = false;
 		Timer.timer = 0;
