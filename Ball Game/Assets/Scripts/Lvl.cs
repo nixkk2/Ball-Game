@@ -3,20 +3,41 @@ using System.Collections;
 
 public class Lvl : MonoBehaviour {
 
+	public NewPlayer NP;
+	public NewPlayerController NPC;
 	public GameObject lvl;
 	public GameObject[] Cubes;
+	//public GameObject[] lvls;
 	public Material pick;
+	public string loadLvlName;
 	public static string lvlName;
+	public static bool timera;
 
 	// Use this for initialization
 	void Start () {
-		lvl = GameObject.Find("lvl");
-		lvl.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
-		lvl.transform.Rotate(0, 180, 0);
-		Load();
+		print(LS.lvlname);
+		if(LS.lvlname != "" && LS.lvlname != null) {
+			loadLvlName = LS.lvlname;
+		}
+		
+        if (loadLvlName == "" || loadLvlName == null) {
+			//loadLvlName = "lvl";
+		}
+		print(Test.lvls.Length);
+		for (int i = 0; i < Test.lvls.Length; i++) {
+			if(Test.lvls[i].name == loadLvlName) {
+				lvl = Instantiate(Test.lvls[i], new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+				NPC.BoostT = NPC.MaxBoostT;
+				Load();
+
+			}
+		}
+		
 	}
 	
 	void Load () {
+		lvl.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+		lvl.transform.Rotate(0, 180, 0);
 		for (int i = 0; i < lvl.transform.childCount; i++) {
 			//if(lvl.transform.GetChild(i).name.Contains("Cube_")) {
 			lvl.transform.GetChild(i).gameObject.AddComponent<MeshCollider>();
@@ -65,7 +86,9 @@ public class Lvl : MonoBehaviour {
 			//Cubes.SetValue(lvl.transform.GetChild(i).gameObject, i);
 
 			//Cubes[i] = lvl.transform.GetChild(i).gameObject;
+			NP.RES();
 		}
+		//NewPlayer.
 	}
 
 	// Update is called once per frame

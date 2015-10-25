@@ -24,7 +24,7 @@ public class recorder : MonoBehaviour {
 
 		if (timer >= 0.0083333333333F && play) {
 			playTime++;
-			print(recordpos[playTime]);
+			//print(recordpos[playTime]);
 			cube.transform.position = Win.savedRecordPos[playTime];
 			cube.transform.rotation = Win.savedRecordRot[playTime];
 		}

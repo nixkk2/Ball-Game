@@ -43,8 +43,8 @@ public class NewCameraController : MonoBehaviour {
 		if (NewPlayerController.Lock && !EscMenu.menu) {
 			XR += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 			YR -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-            distFormPlayer += -Input.GetAxis("Mouse ScrollWheel") * 1000 * Time.deltaTime;
-            distFormPlayer = Mathf.Clamp(distFormPlayer, 2, 20);
+			distFormPlayer += -Input.GetAxis("Mouse ScrollWheel") * 1000 * Time.deltaTime;
+			distFormPlayer = Mathf.Clamp(distFormPlayer, 2, 20);
 		}
 		YR = Mathf.Clamp(YR, -70, 70);
 		Erotation = Quaternion.Euler(YR, XR, ZR);
@@ -71,11 +71,11 @@ public class NewCameraController : MonoBehaviour {
 		transform.position = targetMoveUse;
 
 		//targetLook = Quaternion.LookRotation(player.transform.position - transform.position);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, targetLook, smoothLook * Time.deltaTime);
-        transform.LookAt(player.transform.position);
-        //transform.rotation = targetLook;
+		//transform.rotation = Quaternion.Slerp(transform.rotation, targetLook, smoothLook * Time.deltaTime);
+		transform.LookAt(player.transform.position);
+		//transform.rotation = targetLook;
 
-        if (Vector3.Distance (player.transform.position, transform.position) < 3) {
+		if (Vector3.Distance (player.transform.position, transform.position) < 3) {
 			playerColor.a = Vector3.Distance (player.transform.position, transform.position) / 12;
 			rend.material.color = playerColor;
 		}

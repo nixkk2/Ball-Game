@@ -32,9 +32,10 @@ public class NewPlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		Nspeed = Aspeed;
 		Lock = true;
-		BoostT = MaxBoostT;
+		
 		speed = Nspeed;
 		rb = GetComponent<Rigidbody>();
 
@@ -94,9 +95,9 @@ public class NewPlayerController : MonoBehaviour {
 
 		if (options.Boost) {
 
-			if(Input.GetButton("Boost") && !EscMenu.menu) { 
-
-				if(BB) {
+			if(Input.GetButton("Boost") && !EscMenu.menu) {
+				
+				if (BB) {
 					Timer.timerB = true;
 					MaxBoostT = 0;
 					BB = false;
@@ -106,10 +107,11 @@ public class NewPlayerController : MonoBehaviour {
 				else {
 					//BV = new Vector3(0, 0, 0);
 				}
+				BB = false;
 			}
 			if (MaxBoostT >= BoostT) {
 				//boostP.GetComponent<RawImage>().color = new Color(1, 0, 0, 1);
-
+				//print(MaxBoostT >= BoostT);
 				red = bar.colors;
 				red.disabledColor = Color.red;
 				bar2.colors = red;
@@ -117,7 +119,7 @@ public class NewPlayerController : MonoBehaviour {
 				BB = true;
 			}
 			if (MaxBoostT <= BoostT) {
-
+				
 				white = bar2.colors;
 				white.disabledColor = Color.white;
 				bar2.colors = white;
@@ -159,23 +161,23 @@ public class NewPlayerController : MonoBehaviour {
 		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
 		float moveVertical = Input.GetAxisRaw ("Vertical");
 		if(moveHorizontal != 0 && moveVertical != 0) {
-			//moveHorizontal /= 2;
-			//moveVertical /= 2;
+			//moveHorizontal *= .7072F;
+			//moveVertical *= .7072F;
 		}
 
 		if(moveHorizontal != 0 || moveVertical != 0) {
 			Timer.timerB = true;
 		}
 		
-		movement = new Vector3 (moveHorizontal * Time.deltaTime, 0, moveVertical * Time.deltaTime);
-
-		notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
+		movement = new Vector3 (moveHorizontal, 0, moveVertical);
+		movement = Vector3.Normalize(movement);
+        notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
 		//notup.y = PCS.YR;
-
-		movement = notup * movement;
+		
+        movement = notup * movement;
 
 		//rb.AddForce (movement * speed);
-		rb.AddForce(movement * speed);
+		rb.AddForce(movement * speed * Time.deltaTime);
 		
 	}
 }
