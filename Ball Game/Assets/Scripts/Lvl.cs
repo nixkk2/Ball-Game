@@ -20,7 +20,7 @@ public class Lvl : MonoBehaviour {
 			loadLvlName = LS.lvlname;
 		}
 		
-        if (loadLvlName == "" || loadLvlName == null) {
+		if (loadLvlName == "" || loadLvlName == null) {
 			//loadLvlName = "lvl";
 		}
 		print(Test.lvls.Length);

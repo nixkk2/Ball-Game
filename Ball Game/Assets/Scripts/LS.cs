@@ -8,12 +8,16 @@ public class LS : MonoBehaviour {
 	public GameObject LevelSelect;
 	public static string lvlname;
 	public GameObject Butt;
-	public GameObject con;
+	//public GameObject con;
 	public Vector3 buttPos;
+	public RectTransform con;
 
 	// Use this for initialization
 	void Start() {
-		buttPos = new Vector3(217.1F, 308, 1);
+
+		//buttPos = new Vector3(217.1F + 128.3F, 308 + 80.7F, 1);
+		//buttPos = new Vector3(447.7F, 192.7F, 1);
+		buttPos = new Vector3(con.position.x + 90, con.position.y - 25, 1);
 		for (int i = 0; i < Test.lvls.Length; i++) {
 			GameObject GO = Instantiate(Butt, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 			//GO.transform.parent = con.transform;

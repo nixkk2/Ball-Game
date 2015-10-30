@@ -170,8 +170,10 @@ public class NewPlayerController : MonoBehaviour {
 		}
 		
 		movement = new Vector3 (moveHorizontal, 0, moveVertical);
-		movement = Vector3.Normalize(movement);
-        notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
+		//movement = Vector3.Normalize(movement);
+		movement = Vector3.ClampMagnitude(movement, 1);
+		
+		notup = Quaternion.Euler(new Vector3(0, PCS.XR, 0));
 		//notup.y = PCS.YR;
 		
         movement = notup * movement;
